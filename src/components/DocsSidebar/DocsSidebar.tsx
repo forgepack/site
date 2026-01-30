@@ -58,7 +58,7 @@ export function DocsSidebar({ isOpen, onClose }: DocsSidebarProps) {
       <aside className={`docs-sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <span className="sidebar-package-name">@forgepack/request</span>
-          <span className="sidebar-version">v1.0.0</span>
+          <span className="sidebar-version">v1.1.1</span>
         </div>
 
         <nav className="sidebar-nav">

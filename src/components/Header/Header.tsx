@@ -15,8 +15,7 @@ export function Header() {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="header-logo">
-          <span className="logo-icon">⚒️</span>
-          <span className="logo-text">forgepack</span>
+          <span className="logo-text">@forgepack</span>
         </Link>
 
         <nav className={`header-nav ${mobileMenuOpen ? 'open' : ''}`}>

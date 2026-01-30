@@ -11,8 +11,7 @@ export function Footer() {
       <div className="footer-container">
         <div className="footer-brand">
           <Link to="/" className="footer-logo">
-            <span className="logo-icon">⚒️</span>
-            <span className="logo-text">forgepack</span>
+            <span className="logo-text">@forgepack</span>
           </Link>
           <p className="footer-description">{t.footer.description}</p>
         </div>
