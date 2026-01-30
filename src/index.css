@@ -14,10 +14,14 @@
   --color-text-muted: #71717a;
   --color-text-inverse: #0a0a0b;
   
-  --color-brand-primary: #f97316;
-  --color-brand-secondary: #fb923c;
-  --color-brand-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-  --color-brand-glow: rgba(249, 115, 22, 0.15);
+  --color-brand-primary: #00ff88;
+  --color-brand-secondary: #22c55e;
+  --color-brand-gradient: linear-gradient(
+    135deg,
+    #00ff88 0%,
+    #16a34a 100%
+  );
+  --color-brand-glow: rgba(0, 255, 136, 0.15);
   
   --color-accent-blue: #3b82f6;
   --color-accent-green: #22c55e;
