@@ -200,7 +200,8 @@
 }
 
 .filter-btn.active .filter-count {
-  background: rgba(255, 255, 255, 0.3);
+  background-color: var(--color-surface-secondary);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .filter-btn:not(.active) .filter-count {
