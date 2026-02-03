@@ -17,6 +17,7 @@ export const translations = {
       titleHighlight: 'Forgepack',
       description: 'Production-ready packages for React and Spring Boot. Eliminate boilerplate, accelerate development, and ship with confidence.',
       cta: 'Get Started',
+      github: 'GitHub',
       secondary: 'View on GitHub',
     },
     // Features
@@ -147,6 +148,7 @@ export const translations = {
       titleHighlight: 'Forgepack',
       description: 'Pacotes prontos para produção para React e Spring Boot. Elimine código repetitivo, acelere o desenvolvimento e entregue com confiança.',
       cta: 'Começar',
+      github: 'GitHub',
       secondary: 'Ver no GitHub',
     },
     // Features
