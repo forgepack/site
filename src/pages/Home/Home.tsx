@@ -1,28 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
-import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 import './Home.css';
-
-const installCode = `npm install @forgepack/request`;
-
-const quickStartCode = `import { createApiClient, AuthProvider } from '@forgepack/request'
-
-export const api = createApiClient({
-  baseURL: "https://api.service.com",
-  onUnauthorized: () => window.location.href = "/login",
-})
-
-function App() {
-  return (
-    <AuthProvider api={api}>
-      <YourApp />
-    </AuthProvider>
-  )
-}`;
 
 export function Home() {
   const { t } = useLanguage();
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const packages = [
     {
@@ -87,6 +71,27 @@ export function Home() {
     },
   ];
 
+  // Filter packages based on active filter and search term
+  const filteredPackages = packages.filter(pkg => {
+    // Filter by type
+    const typeMatch = activeFilter === 'all' || pkg.type === activeFilter;
+    
+    // Filter by search term (name, description, or tags)
+    const searchMatch = searchTerm === '' || 
+      pkg.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      pkg.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      pkg.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    
+    return typeMatch && searchMatch;
+  });
+
+  // Count packages by type
+  const packageCounts = {
+    all: packages.length,
+    npm: packages.filter(pkg => pkg.type === 'npm').length,
+    maven: packages.filter(pkg => pkg.type === 'maven').length,
+  };
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -103,70 +108,59 @@ export function Home() {
               {t.hero.cta}
             </Link>
             <a
-              href="https://github.com/forgepack"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#packages"
               className="btn btn-secondary"
             >
-              {t.hero.secondary}
+              {t.packages.title}
             </a>
           </div>
         </div>
       </section>
 
-      {/* Install Section */}
-      <section className="install-section">
-        <div className="container">
-          <CodeBlock code={installCode} language="bash" />
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="features-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>{t.features.title}</h2>
-            <p>{t.features.subtitle}</p>
-          </div>
-          <div className="feature-grid">
-            {t.features.items.map((feature, index) => (
-              <div key={index} className="feature-card">
-                <div className="feature-icon">{feature.icon}</div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Start Section */}
-      <section className="quickstart-section">
-        <div className="container">
-          <div className="quickstart-content">
-            <div className="quickstart-text">
-              <h2>Quick Start</h2>
-              <p>Get up and running in minutes with our simple API.</p>
-              <Link to="/docs/request/getting-started" className="btn btn-primary">
-                {t.nav.getStarted}
-              </Link>
-            </div>
-            <div className="quickstart-code">
-              <CodeBlock code={quickStartCode} language="tsx" filename="src/App.tsx" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Packages Section */}
-      <section className="packages-section">
+      <section id="packages" className="packages-section">
         <div className="container">
           <div className="section-header">
             <h2>{t.packages.title}</h2>
             <p>{t.packages.subtitle}</p>
           </div>
+          
+          {/* Package Filters */}
+          <div className="package-filters">
+            <div className="filter-buttons">
+              <button 
+                className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
+                onClick={() => setActiveFilter('all')}
+              >
+                All <span className="filter-count">{packageCounts.all}</span>
+              </button>
+              <button 
+                className={`filter-btn ${activeFilter === 'npm' ? 'active' : ''}`}
+                onClick={() => setActiveFilter('npm')}
+              >
+                npm <span className="filter-count">{packageCounts.npm}</span>
+              </button>
+              <button 
+                className={`filter-btn ${activeFilter === 'maven' ? 'active' : ''}`}
+                onClick={() => setActiveFilter('maven')}
+              >
+                Maven <span className="filter-count">{packageCounts.maven}</span>
+              </button>
+            </div>
+            
+            <div className="search-container">
+              <input
+                type="text"
+                placeholder="Search packages..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+              />
+            </div>
+          </div>
+          
           <div className="packages-grid">
-            {packages.map((pkg) => (
+            {filteredPackages.map((pkg) => (
               pkg.available ? (
                 <Link 
                   key={pkg.name} 
