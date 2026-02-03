@@ -132,19 +132,19 @@ export function Home() {
                 className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
                 onClick={() => setActiveFilter('all')}
               >
-                All <span className="filter-count">{packageCounts.all}</span>
+                {t.packages.filters.all} <span className="filter-count">{packageCounts.all}</span>
               </button>
               <button 
                 className={`filter-btn ${activeFilter === 'npm' ? 'active' : ''}`}
                 onClick={() => setActiveFilter('npm')}
               >
-                npm <span className="filter-count">{packageCounts.npm}</span>
+                {t.packages.filters.npm} <span className="filter-count">{packageCounts.npm}</span>
               </button>
               <button 
                 className={`filter-btn ${activeFilter === 'maven' ? 'active' : ''}`}
                 onClick={() => setActiveFilter('maven')}
               >
-                Maven <span className="filter-count">{packageCounts.maven}</span>
+                {t.packages.filters.maven} <span className="filter-count">{packageCounts.maven}</span>
               </button>
             </div>
             

@@ -66,6 +66,11 @@ export const translations = {
       comingSoon: 'Coming Soon',
       downloads: 'Downloads',
       stars: 'Stars',
+      filters: {
+        all: 'All',
+        npm: 'npm',
+        maven: 'Maven',
+      },
     },
     // Sidebar
     sidebar: {
@@ -190,8 +195,11 @@ export const translations = {
       viewDocs: 'Ver Docs',
       comingSoon: 'Em Breve',
       downloads: 'Downloads',
-      stars: 'Estrelas',
-    },
+      stars: 'Estrelas',      filters: {
+        all: 'Todos',
+        npm: 'npm',
+        maven: 'Maven',
+      },    },
     // Sidebar
     sidebar: {
       gettingStarted: 'Primeiros Passos',
