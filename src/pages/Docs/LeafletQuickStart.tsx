@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 
@@ -412,54 +413,16 @@ export function FileProcessorMap() {
         </div>
       </section>
 
-      <section>
-        <h2>{language === 'en' ? '🎯 Next Steps' : '🎯 Próximos Passos'}</h2>
-        <p>
-          {language === 'en' 
-            ? 'Now that you have the basics, explore these advanced topics:'
-            : 'Agora que você tem o básico, explore estes tópicos avançados:'
-          }
-        </p>
-        
-        <ul>
-          <li>
-            <a href="/docs/leaflet/map-configuration">
-              {language === 'en' ? 'Map Configuration' : 'Configuração de Mapas'}
-            </a> - 
-            {language === 'en' 
-              ? ' Customize map appearance and behavior'
-              : ' Personalize a aparência e comportamento do mapa'
-            }
-          </li>
-          <li>
-            <a href="/docs/leaflet/layer-management">
-              {language === 'en' ? 'Layer Management' : 'Gerenciamento de Camadas'}
-            </a> - 
-            {language === 'en' 
-              ? ' Advanced layer control and organization'
-              : ' Controle e organização avançada de camadas'
-            }
-          </li>
-          <li>
-            <a href="/docs/leaflet/interactive-drawing">
-              {language === 'en' ? 'Interactive Drawing' : 'Desenho Interativo'}
-            </a> - 
-            {language === 'en' 
-              ? ' Deep dive into drawing tools and route planning'
-              : ' Mergulhe fundo nas ferramentas de desenho e planejamento de rotas'
-            }
-          </li>
-          <li>
-            <a href="/docs/leaflet/examples/basic-map">
-              {language === 'en' ? 'Complete Examples' : 'Exemplos Completos'}
-            </a> - 
-            {language === 'en' 
-              ? ' See real-world implementations'
-              : ' Veja implementações do mundo real'
-            }
-          </li>
-        </ul>
-      </section>
+      <nav className="docs-nav">
+        <Link to="/docs/leaflet/getting-started" className="docs-nav-link">
+          <span className="docs-nav-label">Previous</span>
+          <span className="docs-nav-title">Installation and Setup</span>
+        </Link>
+        <Link to="/docs/leaflet/map-configuration" className="docs-nav-link next">
+          <span className="docs-nav-label">Next</span>
+          <span className="docs-nav-title">Map Configuration</span>
+        </Link>
+      </nav>
     </div>
   );
 }

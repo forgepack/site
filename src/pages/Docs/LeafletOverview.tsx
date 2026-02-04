@@ -190,40 +190,17 @@ npm install --save-dev @types/leaflet`}
         <CodeBlock language="tsx" code={basicUsageCode} />
       </section>
 
-      <section>
-        <h2>{language === 'en' ? '📚 Next Steps' : '📚 Próximos Passos'}</h2>
-        <div className="grid">
-          <Link to="/docs/leaflet/getting-started" className="card">
-            <h3>{language === 'en' ? '🚀 Getting Started' : '🚀 Primeiros Passos'}</h3>
-            <p>
-              {language === 'en' 
-                ? 'Learn how to install and set up your first interactive map'
-                : 'Aprenda como instalar e configurar seu primeiro mapa interativo'
-              }
-            </p>
-          </Link>
-
-          <Link to="/docs/leaflet/examples/basic-map" className="card">
-            <h3>{language === 'en' ? '📋 Examples' : '📋 Exemplos'}</h3>
-            <p>
-              {language === 'en' 
-                ? 'Explore practical examples and common use cases'
-                : 'Explore exemplos práticos e casos de uso comuns'
-              }
-            </p>
-          </Link>
-
-          <Link to="/docs/leaflet/api/components" className="card">
-            <h3>{language === 'en' ? '🔧 API Reference' : '🔧 Referência da API'}</h3>
-            <p>
-              {language === 'en' 
-                ? 'Complete documentation of all components and hooks'
-                : 'Documentação completa de todos os componentes e hooks'
-              }
-            </p>
-          </Link>
-        </div>
-      </section>
+      <nav className="docs-nav">
+        <div />
+        <Link to="/docs/leaflet/quick-start" className="docs-nav-link next">
+                  <span className="docs-nav-label">Next</span>
+                  <span className="docs-nav-title">Quick Start</span>
+                </Link>
+        <Link to="/docs/leaflet/layer-management" className="docs-nav-link next">
+          <span className="docs-nav-label">Next</span>
+          <span className="docs-nav-title">Layer Management</span>
+        </Link>
+      </nav>
     </div>
   );
 }

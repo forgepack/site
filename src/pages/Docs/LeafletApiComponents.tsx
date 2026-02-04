@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 
@@ -541,6 +542,17 @@ const customIcon = new L.Icon({
           </li>
         </ul>
       </section>
+
+      <nav className="docs-nav">
+        <Link to="/docs/leaflet/quick-start" className="docs-nav-link">
+          <span className="docs-nav-label">Previous</span>
+          <span className="docs-nav-title">Quick Start</span>
+        </Link>
+        <Link to="/docs/leaflet/examples/basic-map" className="docs-nav-link next">
+          <span className="docs-nav-label">Next</span>
+          <span className="docs-nav-title">Basic Map Example</span>
+        </Link>
+      </nav>
     </div>
   );
 }

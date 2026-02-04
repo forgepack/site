@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 
@@ -435,38 +436,13 @@ export function MultipleBaseMapsExample() {
         />
       </section>
 
-      <section>
-        <h2>{language === 'en' ? '🚀 Next Steps' : '🚀 Próximos Passos'}</h2>
-        <ul>
-          <li>
-            <a href="/docs/leaflet/examples/markers">
-              {language === 'en' ? 'Marker Management' : 'Gerenciamento de Marcadores'}
-            </a> - 
-            {language === 'en' 
-              ? ' Advanced marker features and clustering'
-              : ' Recursos avançados de marcadores e agrupamento'
-            }
-          </li>
-          <li>
-            <a href="/docs/leaflet/layer-management">
-              {language === 'en' ? 'Layer Management' : 'Gerenciamento de Camadas'}
-            </a> - 
-            {language === 'en' 
-              ? ' Organize and control map layers'
-              : ' Organize e controle camadas do mapa'
-            }
-          </li>
-          <li>
-            <a href="/docs/leaflet/styling">
-              {language === 'en' ? 'Styling & Theming' : 'Estilo e Temas'}
-            </a> - 
-            {language === 'en' 
-              ? ' Customize map appearance'
-              : ' Personalize a aparência do mapa'
-            }
-          </li>
-        </ul>
-      </section>
+      <nav className="docs-nav">
+        <Link to="/docs/leaflet/api/components" className="docs-nav-link">
+          <span className="docs-nav-label">Previous</span>
+          <span className="docs-nav-title">API Components</span>
+        </Link>
+        <div />
+      </nav>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 
@@ -273,38 +274,16 @@ export function TestMap() {
         </div>
       </section>
 
-      <section>
-        <h2>{language === 'en' ? '🚀 Next Steps' : '🚀 Próximos Passos'}</h2>
-        <ul>
-          <li>
-            <a href="/docs/leaflet/quick-start">
-              {language === 'en' ? 'Quick Start Guide' : 'Guia de Início Rápido'}
-            </a> - 
-            {language === 'en' 
-              ? ' Learn the basics of creating interactive maps'
-              : ' Aprenda o básico sobre criar mapas interativos'
-            }
-          </li>
-          <li>
-            <a href="/docs/leaflet/examples/basic-map">
-              {language === 'en' ? 'Basic Map Example' : 'Exemplo de Mapa Básico'}
-            </a> - 
-            {language === 'en' 
-              ? ' See a complete working example'
-              : ' Veja um exemplo completo funcionando'
-            }
-          </li>
-          <li>
-            <a href="/docs/leaflet/api/components">
-              {language === 'en' ? 'API Reference' : 'Referência da API'}
-            </a> - 
-            {language === 'en' 
-              ? ' Explore all available components and props'
-              : ' Explore todos os componentes e propriedades disponíveis'
-            }
-          </li>
-        </ul>
-      </section>
+      <nav className="docs-nav">
+        <Link to="/docs/leaflet" className="docs-nav-link">
+          <span className="docs-nav-label">Previous</span>
+          <span className="docs-nav-title">Overview</span>
+        </Link>
+        <Link to="/docs/leaflet/quick-start" className="docs-nav-link next">
+          <span className="docs-nav-label">Next</span>
+          <span className="docs-nav-title">Quick Start</span>
+        </Link>
+      </nav>
     </div>
   );
 }
