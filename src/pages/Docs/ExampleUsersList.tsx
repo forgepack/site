@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 
@@ -121,6 +122,14 @@ export function UsersList() {
       <h1>{t.title}</h1>
       <p className="docs-subtitle">{t.subtitle}</p>
       <CodeBlock code={code} language="tsx" filename="src/pages/UsersList.tsx" />
+
+      <nav className="docs-nav">
+        <Link to="/docs/request/examples/dashboard" className="docs-nav-link">
+          <span className="docs-nav-label">Previous</span>
+          <span className="docs-nav-title">Dashboard Example</span>
+        </Link>
+        <div />
+      </nav>
     </article>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 
@@ -59,6 +60,17 @@ createApiClient(config: {
       <h1>{t.title}</h1>
       <p className="docs-subtitle">{t.subtitle}</p>
       <CodeBlock code={servicesCode} language="tsx" />
+
+      <nav className="docs-nav">
+        <Link to="/docs/request/api/components" className="docs-nav-link">
+          <span className="docs-nav-label">Previous</span>
+          <span className="docs-nav-title">Components API</span>
+        </Link>
+        <Link to="/docs/request/api/types" className="docs-nav-link next">
+          <span className="docs-nav-label">Next</span>
+          <span className="docs-nav-title">Types API</span>
+        </Link>
+      </nav>
     </article>
   );
 }

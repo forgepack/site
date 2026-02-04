@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 
@@ -79,6 +80,17 @@ interface UseRequestResult<T> {
       <h1>{t.title}</h1>
       <p className="docs-subtitle">{t.subtitle}</p>
       <CodeBlock code={typesCode} language="tsx" />
+
+      <nav className="docs-nav">
+        <Link to="/docs/request/api/services" className="docs-nav-link">
+          <span className="docs-nav-label">Previous</span>
+          <span className="docs-nav-title">Services API</span>
+        </Link>
+        <Link to="/docs/request/api/utilities" className="docs-nav-link next">
+          <span className="docs-nav-label">Next</span>
+          <span className="docs-nav-title">Utilities API</span>
+        </Link>
+      </nav>
     </article>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 
@@ -74,6 +75,17 @@ export function Dashboard() {
       <h1>{t.title}</h1>
       <p className="docs-subtitle">{t.subtitle}</p>
       <CodeBlock code={code} language="tsx" filename="src/pages/Dashboard.tsx" />
+
+      <nav className="docs-nav">
+        <Link to="/docs/request/examples/login-form" className="docs-nav-link">
+          <span className="docs-nav-label">Previous</span>
+          <span className="docs-nav-title">Login Form Example</span>
+        </Link>
+        <Link to="/docs/request/examples/users-list" className="docs-nav-link next">
+          <span className="docs-nav-label">Next</span>
+          <span className="docs-nav-title">Users List Example</span>
+        </Link>
+      </nav>
     </article>
   );
 }
