@@ -248,27 +248,6 @@ Example: -23.1_-43.5_-22.8_-43.0.png" language="text" />
 -20.3155 -40.2872" language="text" />
       </section>
 
-      <section>
-        <h2>{language === 'en' ? 'Related Documentation' : 'Documentação Relacionada'}</h2>
-        <ul>
-          <li>
-            <Link to="/docs/leaflet/reference/hooks">
-              {language === 'en' ? 'Hooks API' : 'API dos Hooks'}
-            </Link> - {language === 'en' ? 'Learn about the useMap hook and other utilities' : 'Aprenda sobre o hook useMap e outros utilitários'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/reference/types">
-              {language === 'en' ? 'Type Definitions' : 'Definições de Tipo'}
-            </Link> - {language === 'en' ? 'TypeScript interfaces and type definitions' : 'Interfaces TypeScript e definições de tipo'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/basic-map">
-              {language === 'en' ? 'Basic Examples' : 'Exemplos Básicos'}
-            </Link> - {language === 'en' ? 'See components in action' : 'Veja os componentes em ação'}
-          </li>
-        </ul>
-      </section>
-
       <nav className="docs-nav">
         <Link to="/docs/leaflet/examples/image-overlays" className="docs-nav-link">
           <span className="docs-nav-label">{language === 'en' ? 'Previous' : 'Anterior'}</span>

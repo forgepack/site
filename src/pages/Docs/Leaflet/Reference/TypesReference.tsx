@@ -387,27 +387,6 @@ const {
 }: UseMapReturn = useMap()`} language="tsx" />
       </section>
 
-      <section>
-        <h2>{language === 'en' ? 'Related Documentation' : 'Documentação Relacionada'}</h2>
-        <ul>
-          <li>
-            <Link to="/docs/leaflet/reference/components">
-              {language === 'en' ? 'Components API' : 'API dos Componentes'}
-            </Link> - {language === 'en' ? 'See types used in components' : 'Veja tipos usados em componentes'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/reference/hooks">
-              {language === 'en' ? 'Hooks API' : 'API dos Hooks'}
-            </Link> - {language === 'en' ? 'Hook interfaces and return types' : 'Interfaces de hooks e tipos de retorno'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/getting-started">
-              {language === 'en' ? 'Getting Started' : 'Começando'}
-            </Link> - {language === 'en' ? 'TypeScript setup and configuration' : 'Configuração e setup do TypeScript'}
-          </li>
-        </ul>
-      </section>
-
       <nav className="docs-nav">
         <Link to="/docs/leaflet/reference/services" className="docs-nav-link docs-nav-prev">
           <span className="docs-nav-label">

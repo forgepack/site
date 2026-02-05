@@ -461,27 +461,6 @@ export const InformativeRoute = () => {
         </ul>
       </section>
 
-      <section>
-        <h2>{language === 'en' ? 'Next Steps' : 'Próximos Passos'}</h2>
-        <ul>
-          <li>
-            <Link to="/docs/leaflet/examples/image-overlays">
-              {language === 'en' ? 'Image Overlays' : 'Sobreposições de Imagem'}
-            </Link> - {language === 'en' ? 'Add charts and nautical overlays' : 'Adicione cartas e sobreposições náuticas'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/reference/components">
-              {language === 'en' ? 'Components API' : 'API dos Componentes'}
-            </Link> - {language === 'en' ? 'Detailed component and hook documentation' : 'Documentação detalhada dos componentes e hooks'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/reference/hooks">
-              {language === 'en' ? 'Hooks API' : 'API dos Hooks'}
-            </Link> - {language === 'en' ? 'Learn about useMap hook functionality' : 'Aprenda sobre a funcionalidade do hook useMap'}
-          </li>
-        </ul>
-      </section>
-
       <nav className="docs-nav">
         <Link to="/docs/leaflet/examples/markers" className="docs-nav-link">
           <span className="docs-nav-label">{language === 'en' ? 'Previous' : 'Anterior'}</span>

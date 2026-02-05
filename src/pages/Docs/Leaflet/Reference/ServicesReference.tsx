@@ -282,27 +282,6 @@ export const generateImageThumbnail = (
         </p>
       </section>
 
-      <section>
-        <h2>{language === 'en' ? 'Related Documentation' : 'Documentação Relacionada'}</h2>
-        <ul>
-          <li>
-            <Link to="/docs/leaflet/reference/components#handleinputfile">
-              {language === 'en' ? 'HandleInputFile Component' : 'Componente HandleInputFile'}
-            </Link> - {language === 'en' ? 'Main component that uses these services' : 'Componente principal que usa esses serviços'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/reference/hooks">
-              {language === 'en' ? 'useMap Hook' : 'Hook useMap'}
-            </Link> - {language === 'en' ? 'Hook that integrates with file processing services' : 'Hook que se integra com serviços de processamento de arquivos'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/markers">
-              {language === 'en' ? 'File Upload Examples' : 'Exemplos de Upload de Arquivo'}
-            </Link> - {language === 'en' ? 'See services in action' : 'Veja os serviços em ação'}
-          </li>
-        </ul>
-      </section>
-
       <nav className="docs-nav">
         <Link to="/docs/leaflet/reference/hooks" className="docs-nav-link docs-nav-prev">
           <span className="docs-nav-label">

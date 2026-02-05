@@ -122,36 +122,7 @@ export default App`;
           <li>{language === 'en' ? 'Modern bundler (Vite, Webpack, etc.)' : 'Bundler moderno (Vite, Webpack, etc.)'}</li>
         </ul>
       </section>
-
-      <section>
-        <h2>{language === 'en' ? '📚 Documentation Sections' : '📚 Seções da Documentação'}</h2>
-        <div className="docs-grid">
-          <div className="docs-card">
-            <h3>{language === 'en' ? 'Getting Started' : 'Começando'}</h3>
-            <p>{language === 'en' ? 'Installation and basic setup guide' : 'Guia de instalação e configuração básica'}</p>
-            <Link to="/docs/leaflet/getting-started" className="docs-link">
-              {language === 'en' ? 'Read Guide →' : 'Ler Guia →'}
-            </Link>
-          </div>
-          
-          <div className="docs-card">
-            <h3>{language === 'en' ? 'Examples' : 'Exemplos'}</h3>
-            <p>{language === 'en' ? 'Practical implementation examples' : 'Exemplos práticos de implementação'}</p>
-            <Link to="/docs/leaflet/examples" className="docs-link">
-              {language === 'en' ? 'View Examples →' : 'Ver Exemplos →'}
-            </Link>
-          </div>
-          
-          <div className="docs-card">
-            <h3>{language === 'en' ? 'API Reference' : 'Referência da API'}</h3>
-            <p>{language === 'en' ? 'Complete API documentation' : 'Documentação completa da API'}</p>
-            <Link to="/docs/leaflet/reference" className="docs-link">
-              {language === 'en' ? 'Browse API →' : 'Navegar API →'}
-            </Link>
-          </div>
-        </div>
-      </section>
-
+      
       <nav className="docs-nav">
         <Link to="/docs/leaflet/getting-started" className="docs-nav-link next">
           <span className="docs-nav-label">{language === 'en' ? 'Next' : 'Próximo'}</span>

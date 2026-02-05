@@ -336,27 +336,6 @@ function FileProcessingComponent() {
         </ul>
       </section>
 
-      <section>
-        <h2>{language === 'en' ? 'Related Documentation' : 'Documentação Relacionada'}</h2>
-        <ul>
-          <li>
-            <Link to="/docs/leaflet/reference/components">
-              {language === 'en' ? 'Components API' : 'API dos Componentes'}
-            </Link> - {language === 'en' ? 'Learn about components that use this hook' : 'Aprenda sobre componentes que usam este hook'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/reference/types">
-              {language === 'en' ? 'Type Definitions' : 'Definições de Tipo'}
-            </Link> - {language === 'en' ? 'TypeScript interfaces and type definitions' : 'Interfaces TypeScript e definições de tipo'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/basic-map">
-              {language === 'en' ? 'Basic Examples' : 'Exemplos Básicos'}
-            </Link> - {language === 'en' ? 'See the hook in action' : 'Veja o hook em ação'}
-          </li>
-        </ul>
-      </section>
-
       <nav className="docs-nav">
         <Link to="/docs/leaflet/reference/components" className="docs-nav-link">
           <span className="docs-nav-label">{language === 'en' ? 'Previous' : 'Anterior'}</span>

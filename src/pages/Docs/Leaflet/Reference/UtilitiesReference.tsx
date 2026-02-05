@@ -475,27 +475,6 @@ helpers.downloadData(layerData, 'route-data.json', 'json')`} language="tsx" />
         </ul>
       </section>
 
-      <section>
-        <h2>{language === 'en' ? 'Related Documentation' : 'Documentação Relacionada'}</h2>
-        <ul>
-          <li>
-            <Link to="/docs/leaflet/reference/services">
-              {language === 'en' ? 'Services API' : 'API dos Serviços'}
-            </Link> - {language === 'en' ? 'Services that use these utilities internally' : 'Serviços que usam esses utilitários internamente'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/reference/types">
-              {language === 'en' ? 'Type Definitions' : 'Definições de Tipo'}
-            </Link> - {language === 'en' ? 'Type interfaces for utility functions' : 'Interfaces de tipo para funções utilitárias'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/markers">
-              {language === 'en' ? 'Practical Examples' : 'Exemplos Práticos'}
-            </Link> - {language === 'en' ? 'See utilities in real-world usage' : 'Veja utilitários em uso no mundo real'}
-          </li>
-        </ul>
-      </section>
-
       <nav className="docs-nav">
         <Link to="/docs/leaflet/reference/types" className="docs-nav-link docs-nav-prev">
           <span className="docs-nav-label">

@@ -282,27 +282,6 @@ export const InteractiveMarkers = () => {
 -20.3155,-40.2872,"Port of Vitória"`} language="csv" />
       </section>
 
-      <section>
-        <h2>{language === 'en' ? 'Next Steps' : 'Próximos Passos'}</h2>
-        <ul>
-          <li>
-            <Link to="/docs/leaflet/examples/route-planning">
-              {language === 'en' ? 'Route Planning' : 'Planejamento de Rotas'}
-            </Link> - {language === 'en' ? 'Create interactive routes connecting markers' : 'Crie rotas interativas conectando marcadores'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/image-overlays">
-              {language === 'en' ? 'Image Overlays' : 'Sobreposições de Imagem'}
-            </Link> - {language === 'en' ? 'Add nautical charts and georeferenced images' : 'Adicione cartas náuticas e imagens georreferenciadas'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/reference/components">
-              {language === 'en' ? 'Components API' : 'API dos Componentes'}
-            </Link> - {language === 'en' ? 'Detailed component documentation' : 'Documentação detalhada dos componentes'}
-          </li>
-        </ul>
-      </section>
-
       <nav className="docs-nav">
         <Link to="/docs/leaflet/examples/basic-map" className="docs-nav-link">
           <span className="docs-nav-label">{language === 'en' ? 'Previous' : 'Anterior'}</span>

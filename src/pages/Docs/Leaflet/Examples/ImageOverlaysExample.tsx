@@ -223,27 +223,6 @@ export function GeorefImageOverlay() {
         </div>
       </section>
 
-      <section>
-        <h2>{language === 'en' ? 'Related Documentation' : 'Documentação Relacionada'}</h2>
-        <ul>
-          <li>
-            <Link to="/docs/leaflet/getting-started">
-              {language === 'en' ? 'Getting Started Guide' : 'Guia de Início'}
-            </Link> - {language === 'en' ? 'Basic setup and configuration' : 'Configuração e setup básicos'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/basic-map">
-              {language === 'en' ? 'Basic Map Examples' : 'Exemplos de Mapa Básico'}
-            </Link> - {language === 'en' ? 'Foundation concepts for map creation' : 'Conceitos fundamentais para criação de mapas'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/reference/types">
-              {language === 'en' ? 'Type Definitions' : 'Definições de Tipo'}
-            </Link> - {language === 'en' ? 'TypeScript interfaces for overlay types' : 'Interfaces TypeScript para tipos de sobreposição'}
-          </li>
-        </ul>
-      </section>
-
       <nav className="docs-nav">
         <Link to="/docs/leaflet/examples/route-planning" className="docs-nav-link">
           <span className="docs-nav-label">{language === 'en' ? 'Previous' : 'Anterior'}</span>

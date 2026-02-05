@@ -292,27 +292,6 @@ export const MapWithLoading = () => {
         <CodeBlock code={loadingMapCode} language="tsx" />
       </section>
 
-      <section>
-        <h2>{language === 'en' ? 'Next Steps' : 'Próximos Passos'}</h2>
-        <ul>
-          <li>
-            <Link to="/docs/leaflet/examples/markers">
-              {language === 'en' ? 'Marker Management' : 'Gerenciamento de Marcadores'}
-            </Link> - {language === 'en' ? 'Learn to work with markers and points of interest' : 'Aprenda a trabalhar com marcadores e pontos de interesse'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/route-planning">
-              {language === 'en' ? 'Route Planning' : 'Planejamento de Rotas'}
-            </Link> - {language === 'en' ? 'Create interactive routes and paths' : 'Crie rotas e caminhos interativos'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/image-overlays">
-              {language === 'en' ? 'Image Overlays' : 'Sobreposições de Imagem'}
-            </Link> - {language === 'en' ? 'Add charts and georeferenced images' : 'Adicione cartas e imagens georreferenciadas'}
-          </li>
-        </ul>
-      </section>
-
       <nav className="docs-nav">
         <Link to="/docs/leaflet/getting-started" className="docs-nav-link">
           <span className="docs-nav-label">{language === 'en' ? 'Previous' : 'Anterior'}</span>

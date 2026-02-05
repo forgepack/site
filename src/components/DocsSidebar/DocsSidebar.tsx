@@ -119,6 +119,7 @@ export function DocsSidebar({ isOpen, onClose }: DocsSidebarProps) {
                       to={item.path}
                       className="sidebar-link"
                       onClick={onClose}
+                      end={item.path === `/docs/${currentPackage}`}
                     >
                       {item.label}
                     </NavLink>

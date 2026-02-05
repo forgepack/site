@@ -242,32 +242,6 @@ import "./styles/useMap.css"`;
       </section>
 
       <section>
-        <h2>{language === 'en' ? '🚀 Next Steps' : '🚀 Próximos Passos'}</h2>
-        <ul>
-          <li>
-            <Link to="/docs/leaflet/reference/components">
-              {language === 'en' ? 'Components Reference' : 'Referência dos Componentes'}
-            </Link> - {language === 'en' ? 'for detailed component documentation' : 'para documentação detalhada dos componentes'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/basic-map">
-              {language === 'en' ? 'Basic Map Examples' : 'Exemplos de Mapa Básico'}
-            </Link> - {language === 'en' ? 'for more implementation examples' : 'para mais exemplos de implementação'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/route-planning">
-              {language === 'en' ? 'Route Planning' : 'Planejamento de Rotas'}
-            </Link> - {language === 'en' ? 'for interactive drawing features' : 'para recursos de desenho interativo'}
-          </li>
-          <li>
-            <Link to="/docs/leaflet/examples/image-overlays">
-              {language === 'en' ? 'Image Overlays' : 'Sobreposições de Imagem'}
-            </Link> - {language === 'en' ? 'for georeferenced image support' : 'para suporte de imagens georreferenciadas'}
-          </li>
-        </ul>
-      </section>
-
-      <section>
         <h2>{language === 'en' ? '🔧 Common Issues' : '🔧 Problemas Comuns'}</h2>
         
         <h3>{language === 'en' ? 'Map not showing' : 'Mapa não aparecendo'}</h3>
