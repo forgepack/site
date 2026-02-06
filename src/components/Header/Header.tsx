@@ -14,6 +14,13 @@ export function Header() {
   return (
     <header className="header">
       <div className="header-container">
+        <button 
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}></span>
+          </button>
         <Link to="/" className="header-logo">
           <span className="logo-text">@forgepack</span>
         </Link>
@@ -48,13 +55,6 @@ export function Header() {
             </svg>
             {t.nav.github}
           </a>
-          <button 
-            className="mobile-menu-btn"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}></span>
-          </button>
         </div>
       </div>
     </header>
