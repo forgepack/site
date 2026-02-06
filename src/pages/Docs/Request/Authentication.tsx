@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { CodeBlock } from '../../../components/CodeBlock/CodeBlock';
+import { DocsNavigation } from '../../../components/DocsNavigation';
 
 export function Authentication() {
   const { language } = useLanguage();
@@ -22,8 +22,7 @@ export function Authentication() {
       checkAuthDesc: 'You can check if a user is authenticated using the isAuthenticated property:',
       tokenInfo: 'Token Information',
       tokenInfoDesc: 'Access the current user information from the decoded JWT:',
-      next: 'Next: Route Protection',
-      prev: 'Previous: Quick Start',
+
     },
     pt: {
       title: 'Autenticação',
@@ -40,8 +39,6 @@ export function Authentication() {
       checkAuthDesc: 'Você pode verificar se um usuário está autenticado usando a propriedade isAuthenticated:',
       tokenInfo: 'Informações do Token',
       tokenInfoDesc: 'Acesse as informações do usuário atual a partir do JWT decodificado:',
-      next: 'Próximo: Proteção de Rotas',
-      prev: 'Anterior: Início Rápido',
     },
   };
 
@@ -178,7 +175,7 @@ console.log('Expires at:', new Date(payload.exp * 1000))`;
 
       <h2>{t.logout}</h2>
       <p>{t.logoutDesc}</p>
-      <CodeBlock code={logoutCode} language="tsx" />
+      <CodeBlock code={logoutCode} language="tsx" filename="LogoutButton.tsx" />
 
       <h2>{t.checkAuth}</h2>
       <p>{t.checkAuthDesc}</p>
@@ -188,16 +185,7 @@ console.log('Expires at:', new Date(payload.exp * 1000))`;
       <p>{t.tokenInfoDesc}</p>
       <CodeBlock code={tokenInfoCode} language="tsx" />
 
-      <nav className="docs-nav">
-        <Link to="/docs/request/quick-start" className="docs-nav-link">
-          <span className="docs-nav-label">{t.prev.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.prev.split(':')[1]}</span>
-        </Link>
-        <Link to="/docs/request/route-protection" className="docs-nav-link next">
-          <span className="docs-nav-label">{t.next.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.next.split(':')[1]}</span>
-        </Link>
-      </nav>
+      <DocsNavigation />
     </article>
   );
 }

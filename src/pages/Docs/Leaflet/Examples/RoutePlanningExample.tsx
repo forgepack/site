@@ -397,7 +397,7 @@ export const InformativeRoute = () => {
             : 'Use a funcionalidade integrada de desenho de rotas:'
           }
         </p>
-        <CodeBlock code={interactiveRouteCode} language="tsx" />
+        <CodeBlock code={interactiveRouteCode} language="tsx" filename="InteractiveRoute.tsx" />
       </section>
 
       <section>
@@ -408,7 +408,7 @@ export const InformativeRoute = () => {
             : 'Crie rotas a partir de arrays de coordenadas com cálculos de distância:'
           }
         </p>
-        <CodeBlock code={programmaticRouteCode} language="tsx" />
+        <CodeBlock code={programmaticRouteCode} language="tsx" filename="ProgrammaticRoute.tsx" />
       </section>
 
       <section>
@@ -419,17 +419,17 @@ export const InformativeRoute = () => {
             : 'Crie rotas a partir de arquivos de coordenadas enviados:'
           }
         </p>
-        <CodeBlock code={fileRouteCode} language="tsx" />
+        <CodeBlock code={fileRouteCode} language="tsx" filename="FileRouteLoader.tsx" />
       </section>
 
       <section>
         <h2>{language === 'en' ? 'Advanced Route Features' : 'Recursos Avançados de Rotas'}</h2>
         
         <h3>{language === 'en' ? 'Route with Custom Styling' : 'Rota com Estilo Personalizado'}</h3>
-        <CodeBlock code={styledRouteCode} language="tsx" />
+        <CodeBlock code={styledRouteCode} language="tsx" filename="StyledRoute.tsx" />
 
         <h3>{language === 'en' ? 'Route with Waypoint Information' : 'Rota com Informações de Pontos de Referência'}</h3>
-        <CodeBlock code={detailedRouteCode} language="tsx" />
+        <CodeBlock code={detailedRouteCode} language="tsx" filename="DetailedRoute.tsx" />
       </section>
 
       <section>

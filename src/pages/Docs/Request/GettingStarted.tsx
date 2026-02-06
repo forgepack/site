@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { CodeBlock } from '../../../components/CodeBlock/CodeBlock';
+import { DocsNavigation } from '../../../components/DocsNavigation';
 
 export function GettingStarted() {
   const { language } = useLanguage();
@@ -28,8 +28,7 @@ export function GettingStarted() {
       setupStep2Desc: 'Wrap your application with the AuthProvider to enable authentication context:',
       setupStep3: 'Step 3: Use in Components',
       setupStep3Desc: 'Now you can use the authentication hooks in any component:',
-      next: 'Next: Quick Start',
-      prev: 'Previous: Overview',
+
     },
     pt: {
       title: 'Primeiros Passos',
@@ -52,8 +51,7 @@ export function GettingStarted() {
       setupStep2Desc: 'Envolva sua aplicação com o AuthProvider para habilitar o contexto de autenticação:',
       setupStep3: 'Passo 3: Usar nos Componentes',
       setupStep3Desc: 'Agora você pode usar os hooks de autenticação em qualquer componente:',
-      next: 'Próximo: Início Rápido',
-      prev: 'Anterior: Visão Geral',
+
     },
   };
 
@@ -176,16 +174,7 @@ function LoginPage() {
       <p>{t.setupStep3Desc}</p>
       <CodeBlock code={useAuthCode} language="tsx" filename="src/pages/LoginPage.tsx" />
 
-      <nav className="docs-nav">
-        <Link to="/docs/request" className="docs-nav-link">
-          <span className="docs-nav-label">{t.prev.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.prev.split(':')[1]}</span>
-        </Link>
-        <Link to="/docs/request/quick-start" className="docs-nav-link next">
-          <span className="docs-nav-label">{t.next.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.next.split(':')[1]}</span>
-        </Link>
-      </nav>
+      <DocsNavigation />
     </article>
   );
 }

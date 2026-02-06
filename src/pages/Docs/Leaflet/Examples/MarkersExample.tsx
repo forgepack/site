@@ -232,7 +232,7 @@ export const InteractiveMarkers = () => {
             : 'Crie marcadores simples a partir de arrays de coordenadas:'
           }
         </p>
-        <CodeBlock code={basicMarkersCode} language="tsx" />
+        <CodeBlock code={basicMarkersCode} language="tsx" filename="BasicMarkers.tsx" />
       </section>
 
       <section>
@@ -243,7 +243,7 @@ export const InteractiveMarkers = () => {
             : 'Crie marcadores fazendo upload de arquivos de coordenadas:'
           }
         </p>
-        <CodeBlock code={fileMarkersCode} language="tsx" />
+        <CodeBlock code={fileMarkersCode} language="tsx" filename="FileMarkersLoader.tsx" />
       </section>
 
       <section>
@@ -254,7 +254,7 @@ export const InteractiveMarkers = () => {
             : 'Permita que os usuários cliquem no mapa para criar marcadores:'
           }
         </p>
-        <CodeBlock code={interactiveMarkersCode} language="tsx" />
+        <CodeBlock code={interactiveMarkersCode} language="tsx" filename="InteractiveMarkers.tsx" />
       </section>
 
       <section>

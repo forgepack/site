@@ -243,7 +243,7 @@ export const MapWithLoading = () => {
             : 'A implementação mais básica requer apenas o componente Map:'
           }
         </p>
-        <CodeBlock code={simpleMapCode} language="tsx" />
+        <CodeBlock code={simpleMapCode} language="tsx" filename="SimpleMap.tsx" />
       </section>
 
       <section>
@@ -254,8 +254,8 @@ export const MapWithLoading = () => {
             : 'Você pode personalizar o contêiner do mapa com seus próprios estilos:'
           }
         </p>
-        <CodeBlock code={styledMapCode} language="tsx" />
-        <CodeBlock code={basicMapCSS} language="css" />
+        <CodeBlock code={styledMapCode} language="tsx" filename="StyledMap.tsx" />
+        <CodeBlock code={basicMapCSS} language="css" filename="map.css" />
       </section>
 
       <section>
@@ -266,7 +266,7 @@ export const MapWithLoading = () => {
             : 'Use o hook useMap para ter mais controle sobre o mapa:'
           }
         </p>
-        <CodeBlock code={customMapCode} language="tsx" />
+        <CodeBlock code={customMapCode} language="tsx" filename="CustomMap.tsx" />
       </section>
 
       <section>
@@ -289,7 +289,7 @@ export const MapWithLoading = () => {
             : 'Mostre um indicador de carregamento enquanto o mapa inicializa:'
           }
         </p>
-        <CodeBlock code={loadingMapCode} language="tsx" />
+        <CodeBlock code={loadingMapCode} language="tsx" filename="MapWithLoading.tsx" />
       </section>
 
       <nav className="docs-nav">

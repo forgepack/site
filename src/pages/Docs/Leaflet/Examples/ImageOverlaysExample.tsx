@@ -146,7 +146,7 @@ export function GeorefImageOverlay() {
             : 'A maneira mais simples de adicionar uma sobreposição de imagem ao seu mapa definindo os limites geográficos.'
           }
         </p>
-        <CodeBlock code={basicOverlayCode} language="tsx" />
+        <CodeBlock code={basicOverlayCode} language="tsx" filename="ImageOverlay.tsx" />
         <p>
           {language === 'en' 
             ? 'This example shows how to add a nautical chart overlay with defined coordinates and opacity settings.'
@@ -163,7 +163,7 @@ export function GeorefImageOverlay() {
             : 'Faça upload de imagens georreferenciadas onde o nome do arquivo contém as informações dos limites geográficos.'
           }
         </p>
-        <CodeBlock code={georefImageCode} language="tsx" />
+        <CodeBlock code={georefImageCode} language="tsx" filename="GeoreferencedChart.tsx" />
         <div style={{ 
           marginTop: '1rem',
           padding: '1rem',

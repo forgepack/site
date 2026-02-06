@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { CodeBlock } from '../../../components/CodeBlock/CodeBlock';
+import { DocsNavigation } from '../../../components/DocsNavigation';
 
 export function RouteProtection() {
   const { language } = useLanguage();
@@ -20,8 +20,6 @@ export function RouteProtection() {
       redirectDesc: 'Configure where unauthenticated users are redirected:',
       nested: 'Nested Routes',
       nestedDesc: 'Protect entire sections of your application:',
-      next: 'Next: Requests',
-      prev: 'Previous: Authentication',
     },
     pt: {
       title: 'Proteção de Rotas',
@@ -36,8 +34,6 @@ export function RouteProtection() {
       redirectDesc: 'Configure para onde usuários não autenticados são redirecionados:',
       nested: 'Rotas Aninhadas',
       nestedDesc: 'Proteja seções inteiras da sua aplicação:',
-      next: 'Próximo: Requisições',
-      prev: 'Anterior: Autenticação',
     },
   };
 
@@ -168,7 +164,7 @@ function App() {
 
       <h2>{t.roleBased}</h2>
       <p>{t.roleBasedDesc}</p>
-      <CodeBlock code={roleBasedCode} language="tsx" />
+      <CodeBlock code={roleBasedCode} language="tsx" filename="App.tsx" />
 
       <h2>{t.redirect}</h2>
       <p>{t.redirectDesc}</p>
@@ -176,18 +172,9 @@ function App() {
 
       <h2>{t.nested}</h2>
       <p>{t.nestedDesc}</p>
-      <CodeBlock code={nestedCode} language="tsx" />
+      <CodeBlock code={nestedCode} language="tsx" filename="App.tsx" />
 
-      <nav className="docs-nav">
-        <Link to="/docs/request/authentication" className="docs-nav-link">
-          <span className="docs-nav-label">{t.prev.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.prev.split(':')[1]}</span>
-        </Link>
-        <Link to="/docs/request/requests" className="docs-nav-link next">
-          <span className="docs-nav-label">{t.next.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.next.split(':')[1]}</span>
-        </Link>
-      </nav>
+      <DocsNavigation />
     </article>
   );
 }

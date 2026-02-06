@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { CodeBlock } from '../../../components/CodeBlock/CodeBlock';
+import { DocsNavigation } from '../../../components/DocsNavigation';
 
 export function CrudOperations() {
   const { language } = useLanguage();
@@ -23,8 +23,6 @@ export function CrudOperations() {
       removeDesc: 'Delete a resource by ID:',
       pagination: 'Pagination',
       paginationDesc: 'The retrieve function supports pagination parameters:',
-      next: 'Next: Token Management',
-      prev: 'Previous: Requests',
     },
     pt: {
       title: 'Operações CRUD',
@@ -42,8 +40,6 @@ export function CrudOperations() {
       removeDesc: 'Deletar um recurso pelo ID:',
       pagination: 'Paginação',
       paginationDesc: 'A função retrieve suporta parâmetros de paginação:',
-      next: 'Próximo: Gerenciamento de Tokens',
-      prev: 'Anterior: Requisições',
     },
   };
 
@@ -152,34 +148,25 @@ console.log('Users on this page:', result.content)`;
 
       <h2>{t.create}</h2>
       <p>{t.createDesc}</p>
-      <CodeBlock code={createCode} language="tsx" />
+      <CodeBlock code={createCode} language="tsx" filename="CreateUser.tsx" />
 
       <h2>{t.retrieve}</h2>
       <p>{t.retrieveDesc}</p>
-      <CodeBlock code={retrieveCode} language="tsx" />
+      <CodeBlock code={retrieveCode} language="tsx" filename="UsersList.tsx" />
 
       <h2>{t.update}</h2>
       <p>{t.updateDesc}</p>
-      <CodeBlock code={updateCode} language="tsx" />
+      <CodeBlock code={updateCode} language="tsx" filename="EditUser.tsx" />
 
       <h2>{t.remove}</h2>
       <p>{t.removeDesc}</p>
-      <CodeBlock code={removeCode} language="tsx" />
+      <CodeBlock code={removeCode} language="tsx" filename="DeleteUser.tsx" />
 
       <h2>{t.pagination}</h2>
       <p>{t.paginationDesc}</p>
       <CodeBlock code={paginationCode} language="tsx" />
 
-      <nav className="docs-nav">
-        <Link to="/docs/request/requests" className="docs-nav-link">
-          <span className="docs-nav-label">{t.prev.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.prev.split(':')[1]}</span>
-        </Link>
-        <Link to="/docs/request/token-management" className="docs-nav-link next">
-          <span className="docs-nav-label">{t.next.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.next.split(':')[1]}</span>
-        </Link>
-      </nav>
+      <DocsNavigation />
     </article>
   );
 }

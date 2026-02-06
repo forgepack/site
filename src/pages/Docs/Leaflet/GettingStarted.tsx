@@ -200,7 +200,7 @@ import "./styles/useMap.css"`;
             : 'Comece com a implementação mais simples:'
           }
         </p>
-        <CodeBlock code={basicMapCode} language="tsx" />
+        <CodeBlock code={basicMapCode} language="tsx" filename="BasicMap.tsx" />
 
         <h3>{language === 'en' ? '2. Using the Map Hook' : '2. Usando o Hook do Mapa'}</h3>
         <p>
@@ -209,7 +209,7 @@ import "./styles/useMap.css"`;
             : 'Para ter mais controle sobre a funcionalidade do mapa:'
           }
         </p>
-        <CodeBlock code={mapHookCode} language="tsx" />
+        <CodeBlock code={mapHookCode} language="tsx" filename="MapWithHook.tsx" />
 
         <h3>{language === 'en' ? '3. File Input for Coordinate Data' : '3. Entrada de Arquivo para Dados de Coordenadas'}</h3>
         <p>
@@ -218,10 +218,10 @@ import "./styles/useMap.css"`;
             : 'Manipule arquivos de coordenadas e sobreposições de imagem:'
           }
         </p>
-        <CodeBlock code={fileHandlerCode} language="tsx" />
+        <CodeBlock code={fileHandlerCode} language="tsx" filename="FileHandler.tsx" />
 
         <h3>{language === 'en' ? '4. Complete Example with All Components' : '4. Exemplo Completo com Todos os Componentes'}</h3>
-        <CodeBlock code={completeExampleCode} language="tsx" />
+        <CodeBlock code={completeExampleCode} language="tsx" filename="CompleteMap.tsx" />
       </section>
 
       <section>
@@ -251,7 +251,7 @@ import "./styles/useMap.css"`;
             : 'Certifique-se de que o CSS do Leaflet está devidamente importado e que o contêiner do mapa tem uma altura definida:'
           }
         </p>
-        <CodeBlock code={mapContainerCSS} language="css" />
+        <CodeBlock code={mapContainerCSS} language="css" filename="map-styles.css" />
 
         <h3>{language === 'en' ? 'TypeScript errors' : 'Erros do TypeScript'}</h3>
         <p>

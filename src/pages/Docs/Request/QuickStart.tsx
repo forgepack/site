@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { CodeBlock } from '../../../components/CodeBlock/CodeBlock';
+import { DocsNavigation } from '../../../components/DocsNavigation';
 
 export function QuickStart() {
   const { language } = useLanguage();
@@ -23,8 +23,6 @@ export function QuickStart() {
       step6Desc: 'Use the CRUD functions to interact with your API:',
       done: "That's it!",
       doneDesc: 'You now have a fully functional authentication system with protected routes and data fetching. Explore the detailed guides to learn more about each feature.',
-      next: 'Next: Authentication',
-      prev: 'Previous: Installation',
     },
     pt: {
       title: 'Início Rápido',
@@ -42,8 +40,6 @@ export function QuickStart() {
       step6Desc: 'Use as funções CRUD para interagir com sua API:',
       done: 'Pronto!',
       doneDesc: 'Agora você tem um sistema de autenticação totalmente funcional com rotas protegidas e busca de dados. Explore os guias detalhados para aprender mais sobre cada recurso.',
-      next: 'Próximo: Autenticação',
-      prev: 'Anterior: Instalação',
     },
   };
 
@@ -193,16 +189,7 @@ export function Dashboard() {
       <h2>{t.done}</h2>
       <p>{t.doneDesc}</p>
 
-      <nav className="docs-nav">
-        <Link to="/docs/request/getting-started" className="docs-nav-link">
-          <span className="docs-nav-label">{t.prev.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.prev.split(':')[1]}</span>
-        </Link>
-        <Link to="/docs/request/authentication" className="docs-nav-link next">
-          <span className="docs-nav-label">{t.next.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.next.split(':')[1]}</span>
-        </Link>
-      </nav>
+      <DocsNavigation />
     </article>
   );
 }

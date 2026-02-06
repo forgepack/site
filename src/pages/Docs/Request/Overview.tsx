@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { CodeBlock } from '../../../components/CodeBlock/CodeBlock';
+import { DocsNavigation } from '../../../components/DocsNavigation';
 
 export function RequestOverview() {
   const { language } = useLanguage();
@@ -21,7 +21,6 @@ export function RequestOverview() {
       ],
       installation: 'Installation',
       quickstart: 'Quick Start',
-      next: 'Next: Installation',
     },
     pt: {
       title: '@forgepack/request',
@@ -37,7 +36,6 @@ export function RequestOverview() {
       ],
       installation: 'Instalação',
       quickstart: 'Início Rápido',
-      next: 'Próximo: Instalação',
     },
   };
 
@@ -93,13 +91,7 @@ function App() {
       <h2>{t.quickstart}</h2>
       <CodeBlock code={quickstartCode} language="tsx" filename="src/App.tsx" />
 
-      <nav className="docs-nav">
-        <div />
-        <Link to="/docs/request/getting-started" className="docs-nav-link next">
-          <span className="docs-nav-label">{t.next.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.next.split(':')[1]}</span>
-        </Link>
-      </nav>
+      <DocsNavigation />
     </article>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { CodeBlock } from '../../../components/CodeBlock/CodeBlock';
+import { DocsNavigation } from '../../../components/DocsNavigation';
 
 export function Requests() {
   const { language } = useLanguage();
@@ -20,8 +20,6 @@ export function Requests() {
       searchDesc: 'Add search functionality with debouncing:',
       refresh: 'Manual Refresh',
       refreshDesc: 'Trigger data refresh programmatically:',
-      next: 'Next: CRUD Operations',
-      prev: 'Previous: Route Protection',
     },
     pt: {
       title: 'Requisições e Paginação',
@@ -36,8 +34,6 @@ export function Requests() {
       searchDesc: 'Adicione funcionalidade de busca com debouncing:',
       refresh: 'Atualização Manual',
       refreshDesc: 'Dispare atualização de dados programaticamente:',
-      next: 'Próximo: Operações CRUD',
-      prev: 'Anterior: Proteção de Rotas',
     },
   };
 
@@ -209,30 +205,21 @@ function UsersListWithRefresh() {
 
       <h2>{t.basicUsage}</h2>
       <p>{t.basicUsageDesc}</p>
-      <CodeBlock code={basicUsageCode} language="tsx" />
+      <CodeBlock code={basicUsageCode} language="tsx" filename="UsersList.tsx" />
 
       <h2>{t.pagination}</h2>
       <p>{t.paginationDesc}</p>
-      <CodeBlock code={paginationCode} language="tsx" />
+      <CodeBlock code={paginationCode} language="tsx" filename="PaginatedUsersList.tsx" />
 
       <h2>{t.search}</h2>
       <p>{t.searchDesc}</p>
-      <CodeBlock code={searchCode} language="tsx" />
+      <CodeBlock code={searchCode} language="tsx" filename="SearchableUsersList.tsx" />
 
       <h2>{t.refresh}</h2>
       <p>{t.refreshDesc}</p>
       <CodeBlock code={refreshCode} language="tsx" />
 
-      <nav className="docs-nav">
-        <Link to="/docs/request/route-protection" className="docs-nav-link">
-          <span className="docs-nav-label">{t.prev.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.prev.split(':')[1]}</span>
-        </Link>
-        <Link to="/docs/request/crud-operations" className="docs-nav-link next">
-          <span className="docs-nav-label">{t.next.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.next.split(':')[1]}</span>
-        </Link>
-      </nav>
+      <DocsNavigation />
     </article>
   );
 }

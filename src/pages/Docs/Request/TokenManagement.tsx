@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { CodeBlock } from '../../../components/CodeBlock/CodeBlock';
+import { DocsNavigation } from '../../../components/DocsNavigation';
 
 export function TokenManagement() {
   const { language } = useLanguage();
@@ -27,8 +27,6 @@ export function TokenManagement() {
         'Use short token expiration times with refresh tokens',
         'Clear tokens on logout to prevent session hijacking',
       ],
-      next: 'Next: Hooks API',
-      prev: 'Previous: CRUD Operations',
     },
     pt: {
       title: 'Gerenciamento de Tokens',
@@ -50,8 +48,6 @@ export function TokenManagement() {
         'Use tempos de expiração curtos com refresh tokens',
         'Limpe os tokens no logout para prevenir sequestro de sessão',
       ],
-      next: 'Próximo: API de Hooks',
-      prev: 'Anterior: Operações CRUD',
     },
   };
 
@@ -162,16 +158,7 @@ const STORAGE_KEY = 'auth_token'
         ))}
       </ul>
 
-      <nav className="docs-nav">
-        <Link to="/docs/request/crud-operations" className="docs-nav-link">
-          <span className="docs-nav-label">{t.prev.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.prev.split(':')[1]}</span>
-        </Link>
-        <Link to="/docs/request/reference/hooks" className="docs-nav-link next">
-          <span className="docs-nav-label">{t.next.split(':')[0]}</span>
-          <span className="docs-nav-title">{t.next.split(':')[1]}</span>
-        </Link>
-      </nav>
+      <DocsNavigation />
     </article>
   );
 }
