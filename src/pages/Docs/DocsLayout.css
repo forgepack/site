@@ -166,6 +166,7 @@
   transition: all var(--transition-fast);
   flex: 1;
   min-width: 0;
+  margin-bottom: 1.5rem;
 }
 
 .docs-nav-link:hover {
