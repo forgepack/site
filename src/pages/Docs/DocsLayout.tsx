@@ -1,22 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { DocsSidebar } from '../../components/DocsSidebar/DocsSidebar';
 import { PackageSelector } from '../../components/PackageSelector/PackageSelector';
 import './DocsLayout.css';
 
 export function DocsLayout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   return (
     <div className="docs-layout">
-      <button 
-        className="sidebar-toggle"
-        onClick={() => setSidebarOpen(!sidebarOpen)}
-        aria-label="Toggle sidebar"
-      >
-        ☰ Menu
-      </button>
-      <DocsSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <DocsSidebar isOpen={false} onClose={() => {}} />
       <main className="docs-main">
         <div className="docs-content">
           <div className="docs-header">
