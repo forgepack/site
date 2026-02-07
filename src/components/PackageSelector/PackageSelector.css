@@ -44,7 +44,7 @@
   transition: transform 0.2s ease;
 }
 
-.package-selector:hover .dropdown-arrow {
+.dropdown-arrow.rotated {
   transform: rotate(180deg);
 }
 
@@ -61,14 +61,30 @@
   visibility: hidden;
   transform: translateY(-10px);
   transition: all 0.2s ease;
-  z-index: 1000;
+  z-index: 1100;
   backdrop-filter: blur(8px);
+  pointer-events: none;
 }
 
-.package-selector:hover .package-dropdown {
+.package-dropdown.visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Keep hover functionality for desktop */
+@media (hover: hover) and (pointer: fine) {
+  .package-selector:hover .package-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  .package-selector:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
 }
 
 .package-option {
