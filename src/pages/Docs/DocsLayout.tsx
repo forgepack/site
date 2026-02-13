@@ -1,29 +1,12 @@
 import React from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { DocsSidebar } from '../../components/DocsSidebar/DocsSidebar';
 import { PackageSelector } from '../../components/PackageSelector/PackageSelector';
+import { useCurrentPackage } from '../../hooks/usePackages';
 import './DocsLayout.css';
 
 export function DocsLayout() {
-  const location = useLocation();
-  
-  // Define the packages with npm URLs
-  const packages = [
-    {
-      name: '@forgepack/request',
-      path: '/docs/request',
-      npmUrl: 'https://www.npmjs.com/package/@forgepack/request',
-    },
-    {
-      name: '@forgepack/leaflet',
-      path: '/docs/leaflet',
-      npmUrl: 'https://www.npmjs.com/package/@forgepack/leaflet',
-    },
-  ];
-
-  const currentPackage = packages.find(pkg => 
-    location.pathname.startsWith(pkg.path)
-  );
+  const currentPackage = useCurrentPackage();
 
   const handleNpmClick = () => {
     if (currentPackage) {

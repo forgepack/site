@@ -1,40 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { usePackages, useCurrentPackage } from '../../hooks/usePackages';
 import './PackageSelector.css';
 
-interface Package {
-  name: string;
-  path: string;
-  description: string;
-  icon: string;
-  npmUrl: string;
-}
-
 export function PackageSelector() {
-  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  
-  const packages: Package[] = [
-    {
-      name: '@forgepack/request',
-      path: '/docs/request',
-      description: 'HTTP client with JWT authentication',
-      icon: '🔐',
-      npmUrl: 'https://www.npmjs.com/package/@forgepack/request',
-    },
-    {
-      name: '@forgepack/leaflet',
-      path: '/docs/leaflet', 
-      description: 'Interactive maps and geospatial data',
-      icon: '🗺️',
-      npmUrl: 'https://www.npmjs.com/package/@forgepack/leaflet',
-    },
-  ];
-
-  const currentPackage = packages.find(pkg => 
-    location.pathname.startsWith(pkg.path)
-  );
+  const { packages } = usePackages();
+  const currentPackage = useCurrentPackage();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -95,10 +68,10 @@ export function PackageSelector() {
       
       <div className={`package-dropdown ${isOpen ? 'visible' : ''}`}>
         {packages.map((pkg) => {
-          const isActive = location.pathname.startsWith(pkg.path);
+          const isActive = currentPackage?.id === pkg.id;
           return (
             <div 
-              key={pkg.name} 
+              key={pkg.id} 
               className={`package-option-wrapper ${isActive ? 'active' : ''}`}
             >
               <Link
