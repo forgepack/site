@@ -1,60 +1,55 @@
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { navigationConfig } from './navigationConfig';
-import { NavigationItem, Language } from './types';
+import { getPackageNavigation } from '../../config/packages';
+import { useLanguage } from '../../i18n/LanguageContext';
 
-export function useDocsNavigation(language: Language) {
+interface NavigationItem {
+  path: string;
+  label: string;
+  title: string;
+}
+
+export function useDocsNavigation() {
   const location = useLocation();
+  const { t, language } = useLanguage();
 
   return useMemo(() => {
-    // Extract package and page from current path
-    // Example: /docs/request/authentication -> package: request, page: authentication
+    // Extract package from current path
     const pathSegments = location.pathname.split('/');
-    const package_ = pathSegments[2]; // request or leaflet
-    const page = pathSegments.slice(3).join('/') || 'overview'; // authentication, examples/basic-map, etc.
+    const packageId = pathSegments[2]; // request or leaflet
+    
+    if (!packageId) return { previousPage: null, nextPage: null };
 
-    const config = navigationConfig[package_];
-    if (!config) return { previousPage: null, nextPage: null };
+    const packageNavigation = getPackageNavigation(packageId, t);
+    
+    // Flatten all navigation items into a single array
+    const allItems: { path: string; label: string }[] = [];
+    packageNavigation.forEach(section => {
+      section.items.forEach(item => {
+        allItems.push({
+          path: item.path,
+          label: item.label
+        });
+      });
+    });
 
-    const currentIndex = config.order.indexOf(page);
+    // Find current page index
+    const currentIndex = allItems.findIndex(item => item.path === location.pathname);
     if (currentIndex === -1) return { previousPage: null, nextPage: null };
 
-    // Get previous page
-    let previousPage: NavigationItem | null = null;
-    if (currentIndex > 0) {
-      const prevPageKey = config.order[currentIndex - 1];
-      const prevPageInfo = config.pages[prevPageKey];
-      if (prevPageInfo) {
-        const prevPagePath = prevPageKey === 'overview' 
-          ? `/docs/${package_}` 
-          : `/docs/${package_}/${prevPageKey}`;
-        
-        previousPage = {
-          path: prevPagePath,
-          label: prevPageInfo[language].label,
-          title: prevPageInfo[language].title
-        };
-      }
-    }
+    // Get previous and next pages
+    const previousPage: NavigationItem | null = currentIndex > 0 ? {
+      path: allItems[currentIndex - 1].path,
+      label: allItems[currentIndex - 1].label,
+      title: allItems[currentIndex - 1].label
+    } : null;
 
-    // Get next page
-    let nextPage: NavigationItem | null = null;
-    if (currentIndex < config.order.length - 1) {
-      const nextPageKey = config.order[currentIndex + 1];
-      const nextPageInfo = config.pages[nextPageKey];
-      if (nextPageInfo) {
-        const nextPagePath = nextPageKey === 'overview' 
-          ? `/docs/${package_}` 
-          : `/docs/${package_}/${nextPageKey}`;
-        
-        nextPage = {
-          path: nextPagePath,
-          label: nextPageInfo[language].label,
-          title: nextPageInfo[language].title
-        };
-      }
-    }
+    const nextPage: NavigationItem | null = currentIndex < allItems.length - 1 ? {
+      path: allItems[currentIndex + 1].path,
+      label: allItems[currentIndex + 1].label,
+      title: allItems[currentIndex + 1].label
+    } : null;
 
     return { previousPage, nextPage };
-  }, [location.pathname, language]);
+  }, [location.pathname, t, language]);
 }

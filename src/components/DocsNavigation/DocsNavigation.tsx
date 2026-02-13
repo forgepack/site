@@ -1,28 +1,18 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { useDocsNavigation } from './useDocsNavigation';
+import { useCurrentPackage } from '../../hooks/usePackages';
 
 export function DocsNavigation() {
-  const { t, language } = useLanguage();
-  const location = useLocation();
-  const { previousPage, nextPage } = useDocsNavigation(language);
+  const { t } = useLanguage();
+  const currentPackage = useCurrentPackage();
+  const { previousPage, nextPage } = useDocsNavigation();
 
-  // Detect current package from URL
-  const pathSegments = location.pathname.split('/');
-  const currentPackage = pathSegments[2] || 'request'; // /docs/[package]/...
+  if (!currentPackage) return null;
   
   // Get repository URL for current package
-  const getRepositoryUrl = (pkg: string) => {
-    const packageRepoMap: Record<string, string> = {
-      'request': 'https://github.com/forgepack/request',
-      'leaflet': 'https://github.com/forgepack/leaflet',
-    };
-    
-    return packageRepoMap[pkg] || 'https://github.com/forgepack/docs';
-  };
-
-  const repositoryUrl = getRepositoryUrl(currentPackage);
+  const repositoryUrl = currentPackage.githubUrl;
   const issueUrl = `${repositoryUrl}/issues/new?template=documentation-issue.md&title=Documentation%20Issue%3A%20&body=**Page%20URL%3A**%20${encodeURIComponent(window.location.href)}%0A%0A**Issue%20Description%3A**%0A%0A**Expected%3A**%0A%0A**Actual%3A**%0A`;
   const prUrl = `${repositoryUrl}/compare`;
 
