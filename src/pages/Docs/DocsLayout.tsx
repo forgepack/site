@@ -8,11 +8,12 @@ import './DocsLayout.css';
 export function DocsLayout() {
   const currentPackage = useCurrentPackage();
 
-  const handleNpmClick = () => {
+  const handleRegistryClick = () => {
     if (currentPackage) {
-      window.open(currentPackage.npmUrl, '_blank');
+      window.open(currentPackage.registryUrl, '_blank');
     }
   };
+  const registryName = currentPackage?.registry === 'maven' ? 'Maven Central' : 'npm';
 
   return (
     <div className="docs-layout">
@@ -22,15 +23,17 @@ export function DocsLayout() {
           <div className="docs-header">
             <button
               className="docs-npm-btn"
-              onClick={handleNpmClick}
+              onClick={handleRegistryClick}
               disabled={!currentPackage}
-              title={currentPackage ? `View ${currentPackage.name} on npm` : 'No package selected'}
-              aria-label={currentPackage ? `Open ${currentPackage.name} npm package page` : 'No package selected'}
+              title={currentPackage ? `View ${currentPackage.name} on ${registryName}` : 'No package selected'}
+              aria-label={currentPackage ? `Open ${currentPackage.name} ${registryName} package page` : 'No package selected'}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M0 7.334v8h6.666v1.332H12V7.334H0zm6.666 6.664H5.334v-4H3.999v4H1.333V8.667h5.333v5.331zm5.334-5.331v5.332h2.666V8.667h1.334v4h1.333v-4h1.333v5.331H24V7.334h-12v.333z"/>
-              </svg>
-              <span>npm</span>
+              {currentPackage?.registry === 'npm' && (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M0 7.334v8h6.666v1.332H12V7.334H0zm6.666 6.664H5.334v-4H3.999v4H1.333V8.667h5.333v5.331zm5.334-5.331v5.332h2.666V8.667h1.334v4h1.333v-4h1.333v5.331H24V7.334h-12v.333z"/>
+                </svg>
+              )}
+              <span>{registryName}</span>
             </button>
             <PackageSelector />
           </div>

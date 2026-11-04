@@ -8,6 +8,7 @@ import './index.css';
 
 const Home = lazy(() => import('./pages/Home/Home').then((module) => ({ default: module.Home })));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const MavenLibraryOverview = lazy(() => import('./pages/Docs/Maven/MavenLibraryOverview'));
 
 const RequestOverview = lazy(() => import('./pages/Docs/Request/Overview').then((module) => ({ default: module.RequestOverview })));
 const RequestGettingStarted = lazy(() => import('./pages/Docs/Request/GettingStarted').then((module) => ({ default: module.GettingStarted })));
@@ -80,6 +81,22 @@ function App() {
                 <Route path="reference/services" element={<LeafletServicesReference />} />
                 <Route path="reference/types" element={<LeafletTypesReference />} />
                 <Route path="reference/utilities" element={<LeafletUtilitiesReference />} />
+              </Route>
+
+              <Route path="/docs/utils" element={<DocsLayout />}>
+                <Route index element={<MavenLibraryOverview libraryId="utils" />} />
+              </Route>
+              <Route path="/docs/validation" element={<DocsLayout />}>
+                <Route index element={<MavenLibraryOverview libraryId="validation" />} />
+              </Route>
+              <Route path="/docs/core" element={<DocsLayout />}>
+                <Route index element={<MavenLibraryOverview libraryId="core" />} />
+              </Route>
+              <Route path="/docs/authorization" element={<DocsLayout />}>
+                <Route index element={<MavenLibraryOverview libraryId="authorization" />} />
+              </Route>
+              <Route path="/docs/authentication" element={<DocsLayout />}>
+                <Route index element={<MavenLibraryOverview libraryId="authentication" />} />
               </Route>
 
               <Route path="*" element={<NotFound />} />

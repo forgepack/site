@@ -36,10 +36,10 @@ export function PackageSelector() {
     setIsOpen(false);
   };
 
-  const handleNpmClick = (e: React.MouseEvent, npmUrl: string) => {
+  const handleRegistryClick = (e: React.MouseEvent, registryUrl: string) => {
     e.preventDefault();
     e.stopPropagation();
-    window.open(npmUrl, '_blank');
+    window.open(registryUrl, '_blank');
   };
 
   return (
@@ -89,13 +89,15 @@ export function PackageSelector() {
               </Link>
               <button
                 className="npm-link-btn"
-                onClick={(e) => handleNpmClick(e, pkg.npmUrl)}
-                title={`View ${pkg.name} on npm`}
-                aria-label={`Open ${pkg.name} npm package page`}
+                onClick={(e) => handleRegistryClick(e, pkg.registryUrl)}
+                title={`View ${pkg.name} on ${pkg.registry === 'npm' ? 'npm' : 'Maven Central'}`}
+                aria-label={`Open ${pkg.name} ${pkg.registry === 'npm' ? 'npm' : 'Maven Central'} package page`}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M0 7.334v8h6.666v1.332H12V7.334H0zm6.666 6.664H5.334v-4H3.999v4H1.333V8.667h5.333v5.331zm5.334-5.331v5.332h2.666V8.667h1.334v4h1.333v-4h1.333v5.331H24V7.334h-12v.333z"/>
-                </svg>
+                {pkg.registry === 'npm' ? (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M0 7.334v8h6.666v1.332H12V7.334H0zm6.666 6.664H5.334v-4H3.999v4H1.333V8.667h5.333v5.331zm5.334-5.331v5.332h2.666V8.667h1.334v4h1.333v-4h1.333v5.331H24V7.334h-12v.333z"/>
+                  </svg>
+                ) : 'M'}
               </button>
             </div>
           );
