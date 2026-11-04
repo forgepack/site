@@ -26,7 +26,7 @@ export function PackageSelector() {
     };
   }, [isOpen]);
 
-  const handleToggle = (e: React.MouseEvent) => {
+  const handleToggle = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setIsOpen(!isOpen);
@@ -55,7 +55,7 @@ export function PackageSelector() {
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            handleToggle(e as any);
+            handleToggle(e);
           }
         }}
       >

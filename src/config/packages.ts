@@ -1,3 +1,5 @@
+import type { Translations } from '../i18n/translations';
+
 export interface PackageConfig {
   id: string;
   name: string;
@@ -48,7 +50,7 @@ export const PACKAGES: PackageConfig[] = [
 ];
 
 // Navigation configuration - separated from package config for maintainability
-export const getPackageNavigation = (packageId: string, t: any): NavigationSection[] => {
+export const getPackageNavigation = (packageId: string, t: Translations): NavigationSection[] => {
   switch (packageId) {
     case 'leaflet':
       return [

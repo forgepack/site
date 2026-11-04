@@ -11,7 +11,7 @@ interface NavigationItem {
 
 export function useDocsNavigation() {
   const location = useLocation();
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   return useMemo(() => {
     // Extract package from current path
@@ -51,5 +51,5 @@ export function useDocsNavigation() {
     } : null;
 
     return { previousPage, nextPage };
-  }, [location.pathname, t, language]);
+  }, [location.pathname, t]);
 }
